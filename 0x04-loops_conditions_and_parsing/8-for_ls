@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#script displays content of the current directory
+
+for file in *; do
+  # Check if the file is a regular file (not a directory or a symbolic link)
+  if [ -f "$file" ]; then
+    # Extract the part of the name after the first dash using parameter expansion
+    name="${file#*-}"
+    # Print the extracted name
+    echo "$name"
+  fi
+done
