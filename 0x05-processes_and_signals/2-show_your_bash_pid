@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#your script must be # shellcheck disable=SC2009
+
+ps aux | grep bash | grep -v grep
