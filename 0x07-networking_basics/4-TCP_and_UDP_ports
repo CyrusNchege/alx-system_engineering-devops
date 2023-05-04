@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Display the listening ports and the corresponding PID and program name
+
+netstat -lp
