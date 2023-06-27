@@ -1,8 +1,10 @@
-file { '/tmp/school':
-  ensure  => file,
-  content => 'I love Puppet',
-  mode    => '0744',
+# Puppet code to create a file in /tmp
+
+file { 'school':
+  ensure  => 'present',
   owner   => 'www-data',
   group   => 'www-data',
+  mode    => '0744',
+  content => 'I love Puppet',
+  path    => '/tmp/school'
 }
-
