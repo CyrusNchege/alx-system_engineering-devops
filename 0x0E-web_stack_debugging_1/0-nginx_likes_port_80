@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Start Nginx service
+service nginx start
+
+# Check Nginx configuration
+nginx_config="/etc/nginx/nginx.conf"
+listen_directive="listen 80;"
+
+if grep -q "$listen_directive" "$nginx_config"; then
+    echo "Nginx configuration is correct."
+else
+    echo "Updating Nginx configuration to listen on port 80..."
+    sed -i "s/^.*listen.*$/\t$listen_directive/" "$nginx_config"
+    echo "Nginx configuration updated."
+fi
+
+# Check for conflicting processes on port 80
+conflicting_process=$(sudo lsof -i :80 | awk 'NR==2{print $1}')
+if [[ -z "$conflicting_process" ]]; then
+    echo "No conflicting processes found on port 80."
+else
+    echo "Stopping conflicting process: $conflicting_process"
+    sudo service "$conflicting_process" stop
+    echo "Conflicting process stopped."
+fi
+
+# Restart Nginx service
+service nginx restart
+echo "Nginx restarted."
+
