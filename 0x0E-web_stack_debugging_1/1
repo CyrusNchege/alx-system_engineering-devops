@@ -1,8 +1,0 @@
-nginx: unrecognized service
-grep: /etc/nginx/nginx.conf: No such file or directory
-Updating Nginx configuration to listen on port 80...
-sed: can't read /etc/nginx/nginx.conf: No such file or directory
-Nginx configuration updated.
-No conflicting processes found on port 80.
-nginx: unrecognized service
-Nginx restarted.
