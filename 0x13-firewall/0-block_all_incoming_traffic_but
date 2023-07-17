@@ -1,0 +1,18 @@
+# Reset ufw to default settings (optional, but recommended if ufw was previously configured)
+sudo ufw reset
+
+# Set the default incoming policy to deny (blocks all incoming traffic)
+sudo ufw default deny incoming
+
+# Set the default outgoing policy to allow (allows all outgoing traffic)
+sudo ufw default allow outgoing
+
+# Allow SSH (port 22)
+sudo ufw allow 22/tcp
+
+# Allow HTTPS (port 443)
+sudo ufw allow 443/tcp
+
+# Allow HTTP (port 80)
+sudo ufw allow 80/tcp
+
